@@ -80,9 +80,8 @@
 
 
 
-from bs4 import BeautifulSoup
-import requests
-
+# from bs4 import BeautifulSoup
+# import requests
 # postload = {
 #     'StartStation':'977abb69-413a-4ccf-a109-0272c24fd490',
 #     'EndStation':'60831846-f0e4-47f6-9b5b-46323ebdcef7',
@@ -101,18 +100,31 @@ import requests
 
 # import requests
 # import json
-# token = 'CAACEdEose0cBAERAKNbZAPF0BFUT14018ZCicvspWZBQtnLfqsQkp3skSAWJcqVnGPPN1GXfOeHwTPAUrpF6ZAMnr3LadniXbhVFi60pchVBZAhHHwvNeBYLWZAon4cf8ENpbVnZAwFaWZC8IQ3yA5KnuHb1eNkCzVHDxXu6iqoQ0CkHakeL9Hnl79eVsSkQVYcZAu2GLtmMx6cf4MTn0iSbO'
+# token = 'CAACEdEose0cBADc5ZBD5kNGHIUZALbMYg8JgtOf29V4j32deCVnFiE7wJtZCPyxG4wFGmiEm5t4VHXEBswSZA8BKXoPgrfzAeMXq8ONxA1F0dIH3O76t3LeyCVZA6xcZB2dgamldqZCuIU2ORAuDGrFKRgIen2o74DA1whDsqtVgpadZCjk4J3FUoZA8XUfm08XkQZBOqOFuwq5AZDZD'
 # res = requests.get('https://graph.facebook.com/v2.5/me?access_token=%s'%(token))
 # print res.text
 # jsondata = json.loads(res.text)
 # print jsondata['summary']
+# s = '\xe9\x9c\x80\xe8\xa6\x81 Cookie\xe6\x82\xa8\xe7\x9a\x84\xe6\xb5\x8f\xe8\xa7\x88\xe5\x99\xa8\xe6\x9c\xaa\xe5\x90\xaf\xe7\x94\xa8 Cookie\xe3\x80\x82\xe8\xaf\xb7\xe5\x9c\xa8\xe6\x82\xa8\xe7\x9a\x84\xe6\xb5\x8f\xe8\xa7\x88\xe5\x99\xa8\xe9\xa6\x96\xe9\x80\x89\xe9\xa1\xb9\xe4\xb8\xad\xe5\x90\xaf\xe7\x94\xa8 cookie \xe5\x90\x8e\xe7\xbb\xa7\xe7\xbb\xad\xe3\x80\x82'
+# print s.decode('utf-8')
 
 
-s = '\xe9\x9c\x80\xe8\xa6\x81 Cookie\xe6\x82\xa8\xe7\x9a\x84\xe6\xb5\x8f\xe8\xa7\x88\xe5\x99\xa8\xe6\x9c\xaa\xe5\x90\xaf\xe7\x94\xa8 Cookie\xe3\x80\x82\xe8\xaf\xb7\xe5\x9c\xa8\xe6\x82\xa8\xe7\x9a\x84\xe6\xb5\x8f\xe8\xa7\x88\xe5\x99\xa8\xe9\xa6\x96\xe9\x80\x89\xe9\xa1\xb9\xe4\xb8\xad\xe5\x90\xaf\xe7\x94\xa8 cookie \xe5\x90\x8e\xe7\xbb\xa7\xe7\xbb\xad\xe3\x80\x82'
-print s.decode('utf-8')
-
-
-
+# Cookie使用
+import urllib2
+import cookielib
+# cookie = cookielib.CookieJar()
+# handler = urllib2.HTTPCookieProcessor(cookie)
+# opener= urllib2.build_opener(handler)
+# response = opener.open("http://www.baidu.com")
+# for item in cookie:
+#     print "Name = "+item.name
+#     print "Value = "+item.value
+filename = 'text_cookies.txt'
+cookie = cookielib.MozillaCookieJar(filename)
+handler = urllib2.HTTPCookieProcessor(cookie)
+opener = urllib2.build_opener(handler)
+response = opener.open("http://www.baidu.com")
+cookie.save(ignore_discard=True, ignore_expires=True)
 
 
 

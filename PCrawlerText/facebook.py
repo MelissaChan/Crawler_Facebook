@@ -164,7 +164,7 @@ class Facebook(object):
             'pass' : self.password,
         })
         response = self.opener.open("https://login.facebook.com/login.php", login_data)
-        print response.readlines().decode('utf-8')
+        # print response.readlines().decode('utf-8')
         return ''.join(response.readlines())
 
     def getAccessToken(self):
